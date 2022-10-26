@@ -12,10 +12,13 @@ module CurrencyExchange
     # Returns the exchange rate value at a given date and currency
     # and raises an exception if the value is invalid
     def get_rate
-      exchange_rate = data[date][to_currency]
-      raise ArgumentError("This is not a .json file") if exchange_rate.nil?
 
-      puts exchange_rate
-    end
+      from_rate = (from_currency == 'EUR') ? 1 : data[date.iso8601][from_currency]
+      to_rate = (to_currency == 'EUR') ? 1 : data[date.iso8601][to_currency] 
+
+      output = to_rate/from_rate
+
+      return output
+      end
   end
 end

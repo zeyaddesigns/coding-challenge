@@ -1,7 +1,6 @@
-#!/usr/bin/env ruby
-
 module CurrencyExchange
   require 'json'
+  require 'date'
   require_relative 'classes/file_reader'
   require_relative 'classes/exchange_rate'
 
@@ -16,6 +15,4 @@ module CurrencyExchange
     data_file_path = File.join(File.dirname(__FILE__), "..", "data")
     File.join(data_file_path, source_file_name)
   end
-
-  self.rate("2018-12-10", "EUR", "JPY")
 end
